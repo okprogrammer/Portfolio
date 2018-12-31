@@ -2,12 +2,13 @@
 <!doctype html>
 <html lang="en">
   <head>
+    {% load staticfiles %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Jekyll v3.8.5">
-    <title>Album example · Bootstrap</title>
+   
+    <title>Om Kumar</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -32,20 +33,20 @@
   <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">Om Kumar</a>
+            <a class="navbar-brand" href="{% url 'home' %}">Om Kumar</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Twitter</a>
+                  <a class="nav-link" href="https://twitter.com/Omkumar26061731">Twitter</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Resume</a>
+                  <a class="nav-link" href="{% static 'resume.pdf' %}">Resume</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Blog</a>
+                  <a class="nav-link active" href="{% url 'allblogs' %}">Blog</a>
                 </li>
               </ul>
             </div>
@@ -61,6 +62,7 @@
       <p>
         <a href="mailto:omk7912@yahoo.com" class="btn btn-primary my-2">Mail Me</a>
       </p>
+      <img src="{% static 'myimg.jpg' %}" height="250" width="250" />
     </div>
   </section>
 
@@ -71,7 +73,7 @@
           {% for job in jobs.all %}
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" height="250" width="100" src="{{job.image.url}}"/>
+            <img class="card-img-top" height="200" width="200" src="{{job.image.url}}"/>
             <div class="card-body">
               <p class="card-text">{{job.summary}}</p>
             </div>
